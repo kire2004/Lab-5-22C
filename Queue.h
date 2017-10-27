@@ -6,6 +6,7 @@
 #include "Stack.h"
 using namespace std;
 
+//new
 class Queue
 {
     public:
