@@ -29,6 +29,18 @@
  	//copy constructor - initializes this stack to have same elements as S
      //postcondition: a copy of stack
 
+class Stack {
+public:
+	/**constructors and destructors*/
+	stack();
+	//initializes an empty stack
+	//post condition: creates an empty stack
+	~stack();
+	//frees memory allocated to the stack
+	//postcondition: memory for stack has been freed
+	stack(const stack &S);
+	//copy constructor - initializes this stack to have same elements as S
+    //postcondition: a copy of stack
 
  	/**manipulation procedures*/
  void pop();
