@@ -2,7 +2,7 @@
  * Queue.cpp
  *
  *  Created on: Oct 26, 2017
- *      Author: Nitla && Ewreck
+ *      Author: Altin and Erik
  */
 
 #include <iostream>
@@ -12,7 +12,12 @@
 #include <cstdlib>
 #include <assert.h>
 
-//Function Prototypes
+//Function Declarations
+void Queue::enqueue(string data) {
+	assert(s2.empty());
+	s1.push(data);
+}
+
 void Queue::dequeue() {
 	assert(!s1.empty()); // stack one must not be empty
 	assert(s2.empty()); // stack two must be emtpy
@@ -30,12 +35,6 @@ void Queue::dequeue() {
 		}
 	}
 
-}
-
-void Queue::enqueue(string data) {
-	assert(s2.empty());
-	cout << "pushing data" << endl;
-	s1.push(data);
 }
 
 string Queue::getFront() {
@@ -57,3 +56,25 @@ string Queue::getFront() {
 	}
 	return temp;
 }
+int Queue::getSize() {
+	assert(s2.empty());
+	return s1.getSize();
+}
+
+bool Queue::empty() {
+	return s1.empty();
+}
+
+void Queue::print() {
+	while (!s1.empty()) {
+		s2.push(s1.peek()); //pushes the top of s1 into s2
+		s1.pop(); //removes the top of s1
+	}
+	while (!s2.empty()) {
+		cout << s2.peek() << " "; //Now its like a queue and outputs top/first
+		s1.push(s2.peek()); //pushes the top of s2 back into s1
+		s2.pop(); //removes the top of s2
+	}
+	cout << endl;
+}
+
